@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<header>
+    <nav class="menu">
+        <a><button class="headerButton" id="aboutButton">Sobre</button></a>
+        <a><button class="headerButton" id="projectsButton">Projetos</button></a>
+        <a><button class="headerButton" id="contactsButton">Contatos</button></a>
+    </nav>
+</header>
+<main>
+    <div id="About">
+        <div id="aboutContainer" class="bodyContainer">
+            <h1>Sobre</h1>
+        </div>
+    </div>
+
+    <img class="pageSplit" src="../static/assets/pageSplit.png">
+
+    <div id="Projects">
+        <div id="projectsContainer" class="bodyContainer">
+            <h1>Projetos</h1>
+        </div>
+    </div>
+
+    <img class="pageSplit" src="../static/assets/pageSplit.png">
+
+    <div id="Contacts">
+        <div id="contactsContainer" class="bodyContainer">
+            <h1>Contatos</h1>
+        </div>
+    </div>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Seleciona todos os botões do menu
+        const buttons = document.querySelectorAll('.headerButton');
+        
+        // Mapeamento dos botões com as respectivas divs
+        const sectionMap = {
+            aboutButton: document.getElementById('About'),
+            projectsButton: document.getElementById('Projects'),
+            contactsButton: document.getElementById('Contacts')
+        };
+        
+        // Adiciona um evento de clique a cada botão
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove a classe 'active' de todos os botões
+                buttons.forEach(btn => btn.classList.remove('active'));
+
+                // Adiciona a classe 'active' ao botão clicado
+                this.classList.add('active');
+
+                // Obter o id do botão clicado
+                const section = sectionMap[this.id];
+                
+                if (section) {
+                    // Scroll suave para a seção correspondente
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Define o botão "Sobre" como 'ativo' e rola suavemente até a div #About
+        const aboutButton = document.getElementById('aboutButton');
+        if (aboutButton) {
+            aboutButton.classList.add('active');
+        }
+        const aboutSection = document.getElementById('About');
+        if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+</script>
+
+{% endblock %}
