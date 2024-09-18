@@ -15,7 +15,16 @@
 <main>
     <div id="About">
         <div id="aboutContainer" class="bodyContainer">
-            <h1>Sobre</h1>
+            <div id="divProfilePicture">
+                <img class="profilePicture" src="../static/assets/profilePicture.png">
+            </div>
+            <div id="divProfileText">
+                <h1>Hey there!</h1>
+                <h2>I'm Eric Gomes, 31 years old and passionate about bringing creative ideas to life through programing.
+                <hr>This portfolio bring some of the work I've done, from personal experiments to professional endeavors.
+                <hr>Whether you're here to explore, I hope you find something interesting.</h2>
+
+            </div>
         </div>
     </div>
 
@@ -23,7 +32,16 @@
 
     <div id="Projects">
         <div id="projectsContainer" class="bodyContainer">
-            <h1>Projetos</h1>
+            <div id="projectsCarousel">
+                <div class="projetos"><h1>Projeto A</h1></div>
+                <div class="projetos"><h1>Projeto B</h1></div>
+                <div class="projetos"><h1>Projeto C</h1></div>
+                <div class="projetos"><h1>Projeto D</h1></div>
+                <div class="projetos"><h1>Projeto E</h1></div>
+            </div>
+            <!-- Navigation buttons -->
+             <button id="prevProject">❮</button>
+             <button id="nextProject">❯</button>
         </div>
     </div>
 
@@ -34,49 +52,9 @@
             <h1>Contatos</h1>
         </div>
     </div>
+    <footer>
+        <img class="profilePicture" src="../static/assets/logo.png">
+    </footer>
 </main>
-
-<script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-        // Seleciona todos os botões do menu
-        const buttons = document.querySelectorAll('.headerButton');
-        
-        // Mapeamento dos botões com as respectivas divs
-        const sectionMap = {
-            aboutButton: document.getElementById('About'),
-            projectsButton: document.getElementById('Projects'),
-            contactsButton: document.getElementById('Contacts')
-        };
-        
-        // Adiciona um evento de clique a cada botão
-        buttons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Remove a classe 'active' de todos os botões
-                buttons.forEach(btn => btn.classList.remove('active'));
-
-                // Adiciona a classe 'active' ao botão clicado
-                this.classList.add('active');
-
-                // Obter o id do botão clicado
-                const section = sectionMap[this.id];
-                
-                if (section) {
-                    // Scroll suave para a seção correspondente
-                    section.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Define o botão "Sobre" como 'ativo' e rola suavemente até a div #About
-        const aboutButton = document.getElementById('aboutButton');
-        if (aboutButton) {
-            aboutButton.classList.add('active');
-        }
-        const aboutSection = document.getElementById('About');
-        if (aboutSection) {
-            aboutSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-</script>
 
 {% endblock %}
