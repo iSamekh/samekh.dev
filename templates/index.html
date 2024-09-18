@@ -33,11 +33,17 @@
     <div id="Projects">
         <div id="projectsContainer" class="bodyContainer">
             <div id="projectsCarousel">
-                <div class="projetos"><h1>Projeto A</h1></div>
-                <div class="projetos"><h1>Projeto B</h1></div>
-                <div class="projetos"><h1>Projeto C</h1></div>
-                <div class="projetos"><h1>Projeto D</h1></div>
-                <div class="projetos"><h1>Projeto E</h1></div>
+                {% for project in projects %}
+                <div class="projetos">
+                    <div class="projectThumb">
+                        <h1>{{ project.title }}</h1>
+                        <img src="{{ project.thumbnail }}" alt="pic" class="imgThumb">
+                    </div>
+                    <div class="projectDescription">
+                        <p>{{ project.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
             <!-- Navigation buttons -->
              <button id="prevProject">❮</button>

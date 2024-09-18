@@ -111,9 +111,10 @@ nav.menu {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    background-color: #E5E5E5AA; /*rgba(0, 0, 0, 0.5);*/
+    color: #101010;
     border: none;
+    border-radius: 25px;
     padding: 10px;
     cursor: pointer;
     font-size: 24px;
@@ -121,30 +122,39 @@ nav.menu {
 }
 
 #prevProject {
-    /*background-image: url('../assets/profileLeft.png');*/
-    left: 10px;
+    left: 15px;
 }
 
 #nextProject {
-    /*background-image: url('../assets/profileRight.png');*/
-    right: 10px;
+    right: 15px;
 }
 
+.projectThumb {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    justify-content: flex-start;
+}
 
+.imgThumb {
+    background: #E5E5E5;
+    height: 60%;
+    width: 70%;
+    border: solid #000000 10px;
+    border-radius: 50px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.projectDescription {
+    display: flex;
+    height: 100%;
+    text-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding-right: 5vw;
+}
 
 
 
